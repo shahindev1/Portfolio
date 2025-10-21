@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shahin | Portfolio</title>
+  <link rel="stylesheet" href="./source/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+<nav class="navbar">
+  <a href="mailto:shahin4contact@gmail.com" class="mail-link" target="__self">📧 shahin4contact@gmail.com</a>
+
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education and Certifications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-controls="nav-links" aria-expanded="false">
+    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+  </button>
+</nav>
+
+<div class="nav-overlay" id="nav-overlay"></div>
+
+<script>
+  // Elements
+  const toggleBtn = document.getElementById('menu-toggle');
+  const navLinks  = document.getElementById('nav-links');
+  const overlay   = document.getElementById('nav-overlay');
+  const BREAKPOINT = 900; // px (matches your CSS media query)
+
+  // Helpers
+  function openMenu() {
+    navLinks.classList.add('show');     // slides drawer in (CSS handles it)
+    overlay.classList.add('show');      // shows the overlay
+    toggleBtn.classList.add('active');  // optional (for hamburger X animation)
+    toggleBtn.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('menu-open'); // prevent background scroll (see note below)
+  }
+
+  function closeMenu() {
+    navLinks.classList.remove('show');
+    overlay.classList.remove('show');
+    toggleBtn.classList.remove('active');
+    toggleBtn.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('menu-open');
+  }
+
+  function isMobile() {
+    return window.innerWidth <= BREAKPOINT;
+  }
+
+  // Toggle on button click
+  toggleBtn.addEventListener('click', () => {
+    if (!isMobile()) return; // desktop shows inline menu; ignore clicks
+    if (navLinks.classList.contains('show')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  // Click overlay to close
+  overlay.addEventListener('click', closeMenu);
+
+  // Close after clicking any nav link (mobile UX)
+  document.querySelectorAll('#nav-links a').forEach(a => {
+    a.addEventListener('click', () => {
+      if (isMobile()) closeMenu();
+    });
+  });
+
+  // Close when resizing up to desktop
+  window.addEventListener('resize', () => {
+    if (!isMobile()) closeMenu();
+  });
+
+  // Close on ESC
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+</script>
+
+
+
+  <!-- Hero Section -->
+  <header class="hero" id="home">
+    <div class="hero-content">
+      <img src="./source/Shahin-Dev.jpeg" alt="Shahin" class="profile-img">
+      <h2>👋 Hey, I'm</h2>
+      <h1>Shahin</h1>
+      <h3>💻 Software Developer</h3>
+      <p class="tagline">“I don’t copy code, I craft it.”</p>
+      <a href="#Contact" class="btn">Contact Me</a>
+      <!-- Social Icons -->
+<div class="social-links">
+  <a href="https://github.com/shahindev1" target="_self" class="social github">
+    <i class="fab fa-github"></i>
+  </a>
+  <a href="https://www.linkedin.com/in/shahin-dev" target="_self" class="social linkedin">
+    <i class="fab fa-linkedin"></i>
+  </a>
+  <a href="https://instagram.com/your-username" target="_self" class="social instagram">
+    <i class="fab fa-instagram"></i>
+  </a>
+  <a href="https://leetcode.com/u/Shahin-dev01/" target="_self" class="social leetcode">
+    <i class="fas fa-code"></i>
+  </a>
+</div>
+    </div>
+    
+  </header>
+  <!-- About Section -->
+<section class="about" id="about">
+  <div class="about-container">
+    <div class="about-text">
+      <h2>About Me</h2>
+      <p>
+        I’m <span class="highlight">Shahin</span>, a dedicated 
+        <strong>Software Developer</strong> passionate about crafting 
+        <strong>clean, efficient solutions</strong>. My focus lies in 
+        <span class="highlight">Full-Stack Development</span> and 
+        <span class="highlight">Problem-Solving</span>, where I transform 
+        ideas into impactful applications.
+      </p>
+      <p>
+        I believe in <strong>continuous growth</strong>, meaningful work, 
+        and building systems that make a difference. Outside of coding, 
+        I enjoy fitness, strategy games, and sharing knowledge with others.
+      </p>
+      <a href="#projects" class="btn">See My Work</a>
+    </div>
+  </div>
+</section>
+
+<section class="skills" id="skills">
+  <div class="skills-container">
+    <h2 class="skills-title">My Skills</h2>
+    <p class="skills-subtitle">Technologies I work with to build efficient and scalable solutions.</p>
+
+
+    
+    <div class="skills-grid">
+      <div class="skill-card">
+        <i class="fab fa-java"></i>
+        <h3>Java</h3>
+        <p>Strong in OOPs, DSA & backend logic building.</p>
+      </div>
+ 
+        <div class="skill-card">
+        <i class="fab fa-html5"></i>
+        <h3>HTML</h3>
+        <p>Clean, semantic, and accessible markup.</p>
+      </div>
+ 
+       <div class="skill-card">
+        <i class="fab fa-css3-alt"></i>
+        <h3>CSS</h3>
+        <p>Responsive, elegant, and modern UI design.</p>
+      </div>
+
+      <!-- <div class="skill-card">
+        <i class="fab fa-js"></i>
+        <h3>JavaScript</h3>
+        <p>Dynamic frontend development & interactive UI.</p>
+      </div> -->
+
+      <div class="skill-card">
+        <i class="fas fa-database"></i>
+        <h3>MySQL</h3>
+        <p>Database design & query optimization.</p>
+      </div>
+
+    
+     
+
+      <!-- <div class="skill-card">
+        <i class="fab fa-react"></i>
+        <h3>React</h3>
+        <p>Component-driven & scalable frontend apps.</p>
+      </div> -->
+
+      <!-- <div class="skill-card">
+        <i class="fas fa-code"></i>
+        <h3>C</h3>
+        <p>Foundational programming & problem solving.</p>
+      </div> -->
+    </div>
+  </div>
+</section>
+
+
+<!-- Education, Certifications & Achievements Section -->
+<section class="edu-achievements" id="education">
+  <div class="section-container">
+
+    <!-- Section Title -->
+    <h2 class="section-title">Education & Certifications</h2>
+    <p class="section-subtitle">Academic background and professional certifications</p>
+
+    <!-- Education Cards -->
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+        <h3>Bachelor of Electronics and Communication Engineering</h3>
+        <p class="institution">St. Xavier’s Catholic College of Engineering, Nagercoil</p>
+        <p class="duration">2021 - 2025</p>
+        <!-- <p class="description">Focused on Software Development, Algorithms, and Full Stack Development.</p> -->
+      </div>
+
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-certificate"></i></div>
+        <h3>Full Stack Web Development</h3>
+        <p class="institution">White Track Technologies Pvt. Ltd.,</p>
+        <p class="duration">2025</p>
+        <p class="description">Learned HTML,CSS,Java,MySQL and modern web practices.</p>
+      </div>
+
+      <!-- <div class="card">
+        <div class="card-icon"><i class="fas fa-code"></i></div>
+        <h3>Data Structures & Algorithms</h3>
+        <p class="institution">LeetCode / HackerRank</p>
+        <p class="duration">2021 - 2022</p>
+        <p class="description">Solved 500+ problems focusing on efficiency and optimized code.</p>
+      </div> -->
+    </div>
+
+    <!-- Achievements Section
+    <h2 class="section-title">Achievements</h2>
+    <p class="section-subtitle">Recognition for problem-solving and project contributions</p>
+
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-trophy"></i></div>
+        <h3>Hackathon Winner</h3>
+        <p class="institution">XYZ Hackathon</p>
+        <p class="duration">2022</p>
+        <p class="description">Built an AI-powered web app in 24 hours with a team of 3 members.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-terminal"></i></div>
+        <h3>Codeforces Rating</h3>
+        <p class="institution">Codeforces</p>
+        <p class="duration">2021 - Present</p>
+        <p class="description">Achieved a rating of 1700+ in problem-solving challenges.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-star"></i></div>
+        <h3>Top Performer in LeetCode</h3>
+        <p class="institution">LeetCode</p>
+        <p class="duration">2022</p>
+        <p class="description">Ranked in top 10% in multiple problem-solving contests.</p>
+      </div>
+    </div>
+
+  </div> -->
+</section>
+
+
+  <!-- Projects Section -->
+  <section class="projects" id="projects">
+    <div class="projects-container">
+      <h2 class="projects-title">Recent Projects</h2>
+      <p class="projects-subtitle">Some of the works I’ve done recently.</p>
+
+      <div class="projects-grid">
+        <!-- Card 1 -->
+        <div class="project-card"
+             data-images="https://picsum.photos/seed/p1a/1200/800,https://picsum.photos/seed/p1b/1200/800,https://picsum.photos/seed/p1c/1200/800"
+             data-title="Portfolio Website"
+             data-desc="A responsive portfolio website built with HTML, CSS, and JavaScript."
+             data-github="https://github.com/yourname/portfolio"
+             data-demo="https://your-portfolio-demo.com">
+          <img src="https://picsum.photos/seed/p1a/600/400" alt="Portfolio Website">
+          <div class="project-info">
+            <h3>Portfolio Website</h3>
+            <p>A responsive portfolio website built with HTML, CSS, and JavaScript.</p>
+            <div class="project-links">
+              <a class="btn" href="https://github.com/yourname/portfolio" target="_self">GitHub</a>
+              <a class="btn outline" href="https://your-portfolio-demo.com" target="_self">Live Demo</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="project-card"
+             data-images="https://picsum.photos/seed/p2a/1200/800,https://picsum.photos/seed/p2b/1200/800"
+             data-title="E-commerce Store"
+             data-desc="Full-stack store using React, Node.js and MySQL."
+             data-github="https://github.com/yourname/ecommerce"
+             data-demo="https://your-ecommerce-demo.com">
+          <img src="https://picsum.photos/seed/p2a/600/400" alt="Ecommerce Store">
+          <div class="project-info">
+            <h3>E-commerce Store</h3>
+            <p>Full-stack store using React, Node.js and MySQL.</p>
+            <div class="project-links">
+              <a class="btn" href="https://github.com/yourname/ecommerce" target="_self">GitHub</a>
+              <a class="btn outline" href="https://your-ecommerce-demo.com" target="_self">Live Demo</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="project-card"
+             data-images="https://picsum.photos/seed/p3a/1200/800,https://picsum.photos/seed/p3b/1200/800"
+             data-title="Weather App"
+             data-desc="Real-time weather with OpenWeather API."
+             data-github="https://github.com/yourname/weather"
+             data-demo="https://your-weather-demo.com">
+          <img src="https://picsum.photos/seed/p3a/600/400" alt="Weather App">
+          <div class="project-info">
+            <h3>Weather App</h3>
+            <p>Real-time weather with OpenWeather API.</p>
+            <div class="project-links">
+              <a class="btn" href="https://github.com/yourname/weather" target="_self">GitHub</a>
+              <a class="btn outline" href="https://your-weather-demo.com" target="_self">Live Demo</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide-in Side Panel (Modal) -->
+  <div class="project-modal" id="projectModal" aria-hidden="true">
+    <div class="overlay"></div>
+
+    <aside class="panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="close" aria-label="Close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <h2 id="modalTitle"></h2>
+      <p id="modalDesc" class="modal-desc"></p>
+
+      <div class="slider">
+        <button class="nav prev" aria-label="Previous image"><i class="fa-solid fa-chevron-left"></i></button>
+        <img id="modalImage" src="" alt="Project image"/>
+        <button class="nav next" aria-label="Next image"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+
+      <div class="modal-links">
+        <a id="githubLink" class="btn" href="#" target="_self" rel="noopener">GitHub</a>
+        <a id="demoLink" class="btn outline" href="#" target="_self" rel="noopener">Live Demo</a>
+      </div>
+    </aside>
+  </div>
+
+  <script src="./source/projects.js" defer></script>
+
+  <!-- Contact Section -->
+<section class="contact" id="contact">
+  <div class="contact-container">
+    <h2 class="contact-title">Contact Me</h2>
+    <p class="contact-subtitle">I’m open to opportunities. Let’s connect and build something amazing together!</p>
+
+    <div class="contact-wrapper">
+      <!-- Left Side: Contact Info -->
+      <div class="contact-left">
+        <div class="info-box">
+          <i class="fas fa-envelope"></i>
+          <h3>Email</h3>
+          <p>shahin@example.com</p>
+        </div>
+        <div class="info-box">
+          <i class="fas fa-phone-alt"></i>
+          <h3>Phone</h3>
+          <p>+91 98765 43210</p>
+        </div>
+        <div class="info-box">
+          <i class="fas fa-map-marker-alt"></i>
+          <h3>Location</h3>
+          <p>Chennai, India</p>
+        </div>
+
+        <div class="social-links">
+          <a href="https://github.com/shahindev1" target="_self"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/shahin-dev" target="_self"><i class="fab fa-linkedin"></i></a>
+          <a href="https://twitter.com/yourusername" target="_self"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+
+      <!-- Right Side: Contact Form -->
+      <div class="contact-right">
+        <form class="contact-form">
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+          <textarea rows="5" placeholder="Your Message" required></textarea>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Find Me Section -->
+<section class="find-me" id="find-me">
+  <div class="find-me-container">
+    <h2 class="find-me-title">Find Me</h2>
+    <h3 class="find-me-subtitle">
+      Connect with me on my professional networks or view my work online.
+    </h3>
+
+    <div class="social-cards">
+      <a href="https://github.com/shahindev1" target="_self" class="social-card github">
+        <i class="fab fa-github"></i>
+        <span>GitHub</span>
+      </a>
+      <a href="https://www.linkedin.com/in/shahin-dev" target="_self" class="social-card linkedin">
+        <i class="fab fa-linkedin"></i>
+        <span>LinkedIn</span>
+      </a>
+      <a href="https://twitter.com/yourusername" target="_self" class="social-card twitter">
+        <i class="fab fa-twitter"></i>
+        <span>Twitter</span>
+      </a>
+      <a href="https://instagram.com/yourusername" target="_self" class="social-card instagram">
+        <i class="fab fa-instagram"></i>
+        <span>Instagram</span>
+      </a>
+      <a href="https://leetcode.com/u/Shahin-dev01/" target="_self" class="social-card leetcode">
+        <i class="fas fa-code"></i>
+        <span>LeetCode</span>
+      </a>
+      <a href="https://www.hackerrank.com/yourusername" target="_self" class="social-card hackerrank">
+        <i class="fas fa-laptop-code"></i>
+        <span>HackerRank</span>
+      </a>
+      <a href="https://codeforces.com/profile/yourusername" target="_self" class="social-card codeforces">
+        <i class="fas fa-terminal"></i>
+        <span>Codeforces</span>
+      </a>
+    </div>
+
+    <a href="./Shahin_CV.pdf" target="_self" class="btn download-cv">Download CV</a>
+  </div>
+</section>
+<!-- Footer Section -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#find-me">Find Me</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <div class="footer-social">
+      <a href="https://github.com/shahindev1" target="_self"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/shahin-dev" target="_self"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:yourname@example.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://leetcode.com/u/Shahin-dev01/" target="_self"><i class="fas fa-code"></i></a>
+    </div>
+
+    <p class="footer-copy">
+      &copy; 2025 Shahin. All Rights Reserved.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
