@@ -492,72 +492,126 @@ body.menu-open {
   }
 }
 
-
+/* ================= SKILLS SECTION ================= */
 .skills {
   padding: 80px 20px;
-
-  color: #f3f4f6;
   text-align: center;
+  color: #0f172a; /* dark text for grey/white bg */
 }
 
+/* Title */
 .skills-title {
   font-size: 2.5rem;
   font-weight: 800;
   margin-bottom: 10px;
-  color: #60a5fa;
   text-transform: uppercase;
   letter-spacing: 2px;
+  color: #3d75ec;
 }
 
 .skills-subtitle {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   margin-bottom: 50px;
-  opacity: 0.85;
+  color: #f4f8fdbb;
 }
 
+/* ================= GRID ================= */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
-  justify-content: center;
+
+  /* Force 3 cards per row on desktop */
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+
+  gap: 30px;
+  
+  max-width: 1000px;
+  margin: 0 auto; /* ✅ center the grid */
 }
 
+/* ================= CARD ================= */
 .skill-card {
   background: rgba(255, 255, 255, 0.05);
-  padding: 30px 20px;
-  border-radius: 15px;
-  transition: 0.3s ease;
+  padding: 35px 25px;
+  border-radius: 18px;
+  transition: all 0.35s ease;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  
 }
 
+/* Icon base */
 .skill-card i {
-  font-size: 45px;
-  margin-bottom: 15px;
-  color: #60a5fa;
-  transition: transform 0.3s ease, color 0.3s ease;
+  font-size: 48px;
+  margin-bottom: 18px;
+  transition: transform 0.35s ease;
 }
 
+/* Text */
 .skill-card h3 {
-  font-size: 1.3rem;
+  font-size: 1.25rem;
+  color: #a5c2e6;
   margin-bottom: 8px;
   font-weight: 600;
 }
 
 .skill-card p {
   font-size: 0.95rem;
-  opacity: 0.8;
-  line-height: 1.5;
+  color: #60a5fa;
+  line-height: 1.6;
 }
 
-/* Hover effects */
+/* ================= HOVER ================= */
 .skill-card:hover {
-  transform: translateY(-8px) scale(1.03);
-  background: rgba(37, 99, 235, 0.1);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  transform: translateY(-10px) scale(1.04);
+  box-shadow: 0 25px 55px rgba(37, 99, 235, 0.2);
 }
 
 .skill-card:hover i {
-  color: #2563eb;
-  transform: scale(1.2) rotate(5deg);
+  transform: scale(1.2) rotate(6deg);
+}
+
+/* ================= BRAND ICON COLORS ================= */
+/* Java */
+.skill-card .fa-java {
+  color: #f89820;
+}
+
+/* HTML */
+.skill-card .fa-html5 {
+  color: #e34f26;
+}
+
+/* CSS */
+.skill-card .fa-css3-alt {
+  color: #1572b6;
+}
+
+/* JavaScript */
+.skill-card .fa-js {
+  color: #f7df1e;
+}
+
+/* MySQL / Database */
+.skill-card .fa-database {
+  color: #4479a1;
+}
+
+/* Git */
+.skill-card .fa-git-alt {
+  color: #f05032;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 
